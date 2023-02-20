@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Favorites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card
+    tappable
+    (click)="seePictureDetails(picture.id)"
+    *ngFor="let picture of favoritePictures"
+  >
+    <ion-card-content>
+      <img [src]="picture.imageUrl" alt="Picture" />
+    </ion-card-content>
+  </ion-card>
+</ion-content>

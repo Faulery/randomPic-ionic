@@ -1,0 +1,14 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col tappable (click)="addToFavorite(picture)" size="4" *ngFor="let picture of pictures">
+        <img class="picture" [src]="picture.download_url" alt="Picture" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

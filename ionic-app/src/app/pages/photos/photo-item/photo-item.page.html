@@ -1,0 +1,13 @@
+<ion-content *ngIf="pictureDetails$ | async as picture">
+  <ion-card tappable>
+    <ion-card-header>
+      <ion-card-title>Author: {{ picture.author }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="picture.download_url" alt="Picture" />
+      <ion-button size="default" color="danger" expand="block" (click)="removeFromFavorites()"
+        >Remove from favorites</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+</ion-content>
