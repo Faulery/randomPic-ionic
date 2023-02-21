@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PictureService } from 'src/app/shared/services/picture.service';
@@ -7,7 +7,6 @@ import { Favorite } from '../../shared/models/picture';
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.page.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FavoritesPage implements OnInit {
   favoritePictures: Favorite[] = [];

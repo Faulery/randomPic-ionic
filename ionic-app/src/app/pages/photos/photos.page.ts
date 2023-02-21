@@ -23,7 +23,7 @@ export class PhotosPage implements OnInit, OnDestroy {
   private subscription!: Subscription; // This subscription stores a cold observable, so it will be completed after emit, but it is good to do unsubscribe everywhere
 
   constructor(
-    private photosService: PictureService,
+    private pictureService: PictureService,
     private snackBar: MatSnackBar,
     private cdr: ChangeDetectorRef
   ) {}
@@ -42,7 +42,7 @@ export class PhotosPage implements OnInit, OnDestroy {
   }
 
   addToFavorite(picture: Picture): void {
-    this.photosService.saveToFavorites({
+    this.pictureService.saveToFavorites({
       id: picture.id,
       imageUrl: picture.download_url,
     });
@@ -57,7 +57,7 @@ export class PhotosPage implements OnInit, OnDestroy {
   }
 
   private loadPictures(page: number, limit?: number, event?: InfiniteScrollCustomEvent): void {
-    this.subscription = this.photosService.getPictures(page, limit).subscribe({
+    this.subscription = this.pictureService.getPictures(page, limit).subscribe({
       next: (pictures: Picture[]) => {
         this.pictures = [...this.pictures, ...pictures]; // I would rather use async pipe instead of make subscription manually but did not have time for that
         this.cdr.detectChanges();
