@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Picture } from '../../../models/picture';
-import { PictureService } from 'src/app/services/picture.service';
+import { Picture } from '../../../shared/models/picture';
+import { PictureService } from 'src/app/shared/services/picture.service';
 
 @Component({
   selector: 'app-photo-item',
   templateUrl: './photo-item.page.html',
-  styleUrls: ['./photo-item.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotoItemPage implements OnInit {
   pictureDetails$!: Observable<Picture>;
